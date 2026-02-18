@@ -1,0 +1,27 @@
+@import "mixins/banner";
+@include bsBanner("");
+
+// Configuration (obligatoire)
+@import "functions";
+@import "variables";
+@import "variables-dark";
+@import "maps";
+@import "mixins";
+
+// Layout & Components (adapter selon vos besoins)
+@import "root";
+@import "reboot";
+@import "type";
+@import "containers";
+@import "grid";
+@import "buttons";
+@import "forms";
+@import "card";
+@import "nav";
+@import "navbar";
+
+// Helpers (optionnel)
+@import "helpers";
+
+// Utilities API
+@import "utilities/api";
