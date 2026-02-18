@@ -38,10 +38,6 @@ const files = [
     configPropertyName: 'js_hash'
   },
   {
-    file: 'dist/js/bootstrap.bundle.min.js',
-    configPropertyName: 'js_bundle_hash'
-  },
-  {
     file: 'node_modules/@popperjs/core/dist/umd/popper.min.js',
     configPropertyName: 'popper_hash'
   }

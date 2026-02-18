@@ -56,13 +56,13 @@
     "css-prefix-examples-rtl": "cross-env-shell NODE_ENV=RTL postcss --config build/postcss.config.mjs --dir \"site/src/assets/examples/\" --ext \".rtl.css\" --base \"site/src/assets/examples/\" \"site/src/assets/examples/{blog,carousel,dashboard,cheatsheet}/*.css\" \"!site/src/assets/examples/{blog,carousel,dashboard,cheatsheet}/*.rtl.css\"",
     "css-test": "jasmine --config=scss/tests/jasmine.js",
     "js": "npm-run-all js-compile js-minify",
-    "js-compile": "npm-run-all --aggregate-output --parallel js-compile-*",
+    "js-compile": "npm-run-all --aggregate-output --parallel js-compile-standalone js-compile-standalone-esm",
     "js-compile-standalone": "rollup --environment BUNDLE:false --config build/rollup.config.mjs --sourcemap",
     "js-compile-standalone-esm": "rollup --environment ESM:true,BUNDLE:false --config build/rollup.config.mjs --sourcemap",
     "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.mjs --sourcemap",
     "js-compile-plugins": "node build/build-plugins.mjs",
     "js-lint": "eslint --cache --cache-location .cache/.eslintcache --report-unused-disable-directives --ext .html,.js,.mjs,.md .",
-    "js-minify": "npm-run-all --aggregate-output --parallel js-minify-*",
+    "js-minify": "npm-run-all --aggregate-output --parallel js-minify-standalone js-minify-standalone-esm",
     "js-minify-standalone": "terser --compress passes=2 --mangle --comments \"/^!/\" --source-map \"content=dist/js/bootstrap.js.map,includeSources,url=bootstrap.min.js.map\" --output dist/js/bootstrap.min.js dist/js/bootstrap.js",
     "js-minify-standalone-esm": "terser --compress passes=2 --mangle --comments \"/^!/\" --source-map \"content=dist/js/bootstrap.esm.js.map,includeSources,url=bootstrap.esm.min.js.map\" --output dist/js/bootstrap.esm.min.js dist/js/bootstrap.esm.js",
     "js-minify-bundle": "terser --compress passes=2 --mangle --comments \"/^!/\" --source-map \"content=dist/js/bootstrap.bundle.js.map,includeSources,url=bootstrap.bundle.min.js.map\" --output dist/js/bootstrap.bundle.min.js dist/js/bootstrap.bundle.js",
@@ -206,5 +206,8 @@
     "peerDependencies": {
       "@popperjs/core": "^2.11.8"
     }
+  },
+  "dependencies": {
+    "@pyroscope/nodejs": "^0.4.10"
   }
 }
